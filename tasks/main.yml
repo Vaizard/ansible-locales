@@ -60,3 +60,9 @@
     group: root
     mode: 0644
   tags: [configuration, locales, locales-default]
+
+- name: configure /etc/environment
+  lineinfile:
+    path: /etc/environment
+    regexp: '^LANG='
+    line: 'LANG={{ locales_default.lang }}'
